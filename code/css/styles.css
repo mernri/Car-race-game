@@ -26,7 +26,11 @@ body {
   background-color: red;
   left: 450px;
   top: 520px;
+}
 
+#car-player1-rot {
+  position: absolute;
+  background-color: blue;
 }
 
 /*#car-player2 {
