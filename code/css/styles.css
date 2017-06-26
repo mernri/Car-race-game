@@ -3,42 +3,71 @@ body {
 }
 
 #track {
-  height: 400px;
+  height: 650px;
   width: 900px;
-  background-color: green;
+  background-color: darkgrey;
   position: absolute;
   margin-left: 15%;
+  margin-top: 5%;
+  border: 10px black solid;
 }
 
 .car {
-  height: 50px;
-  width: 20px;
-  background-color: black;
   position: absolute;
+  height: 30px;
+  width: 60px;
+  background-color: black;
+  border-left: 5px black solid;
+
 }
 
 #car-player1 {
-  right: 0;
-  top:175px;
-
-}
-
-#car-player2 {
-  left: 0;
-  top:175px;
-}
-
-
-#net {
-  height: 400px;
-  width: 2px;
   position: absolute;
-  right: 450px;
-  background-color: white;
+  background-color: red;
+  left: 450px;
+  top: 520px;
+
 }
 
-#winner {
+/*#car-player2 {
+  position: absolute;
+  background-color: green;
+  left: 450px;
+  top: 580px;
+}*/
+
+.wall {
+  position: absolute;
+  background-color: black;
 }
 
-#winner.hide {
+#wall-1 {
+  position: absolute;
+  height: 300px;
+  width: 10px;
+  left: 450px;
+}
+
+#wall-2 {
+  position: absolute;
+  height: 10px;
+  width: 600px;
+  left: 150px;
+  top: 450px;
+}
+
+#wall-3 {
+  position: absolute;
+  height: 300px;
+  width: 10px;
+  left: 150px;
+  top: 150px;
+}
+
+#wall-4 {
+  position: absolute;
+  height: 300px;
+  width: 10px;
+  left: 740px;
+  top: 150px;
 }
