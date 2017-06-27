@@ -10,6 +10,12 @@ Car.prototype.moveForward = function(direction,carSpeed) {
   this.direction = direction;
   var that = this;
   this.intervalId = setInterval(function() {
+    //coger valores x e y del coche
+    actualCarHorPosition = $("#car-player1").position().left;
+    actualCarVertPosition = $("#car-player1").position().top;
+    //llamar a una funcion que controle las colisiones
+    car.carCrashes();
+    //y en la funcion, controlas si el area que ocupa el coche, coinciden con las de las barreras
     switch (that.direction) {
       case "left":
         carDiv1.css({
@@ -131,6 +137,10 @@ Car.prototype.changeDirection = function(newDirection) {
 
 
 Car.prototype.carCrashes = function () {
-  if($("#car-player1").position().left == "0px");
-  car.stop("left");
+  if(actualCarHorPosition < 0) {
+    car.stop("left");
+    console.log("Crasssssssss!!!");
+  }
+
+
 };
