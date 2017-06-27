@@ -26,12 +26,9 @@ body {
   background-color: red;
   left: 450px;
   top: 520px;
+  transform: rotate(0deg);
 }
 
-#car-player1-rot {
-  position: absolute;
-  background-color: blue;
-}
 
 /*#car-player2 {
   position: absolute;

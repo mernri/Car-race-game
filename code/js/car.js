@@ -2,7 +2,7 @@ console.log("Starting car race");
 
 function Car(options) {
   this.direction = "left"; //up, up-right, right, down-right, down, down-left, left, up-left
-  this.speed = 7;
+  this.speed = 5;
 }
 
 var carDiv1 = $("#car-player1");
@@ -13,7 +13,7 @@ var carHorPosition = $("#car-player1").position().left;
 Car.prototype.moveForward = function(direction,carSpeed) {
   this.direction = direction;
   var that = this;
-  var intervalId = setInterval(function() {
+  this.intervalId = setInterval(function() {
     switch (that.direction) {
       case "left":
         carDiv1.css({
@@ -62,15 +62,19 @@ Car.prototype.moveForward = function(direction,carSpeed) {
           left: carHorPosition -= that.speed});
           console.log("acelerando direccion down-left!!");
         break;
-      case "none":
-        carDiv1.css({
-          top: carVertPosition = carVertPosition,
-          left: carHorPosition = carHorPosition});
-          console.log("parando!!");
-        break;
       default:
     }
   },30);
+};
+
+Car.prototype.stop = function(lastDirection) {
+  if (this.intervalId){
+    clearInterval(this.intervalId);
+    // carDiv1.css({
+    //   top: carVertPosition = carVertPosition,
+    //   left: carHorPosition = carHorPosition});
+    this.direction = lastDirection;
+  }
 };
 
 //controls that the turns are allowed just from correct directions
@@ -124,75 +128,3 @@ Car.prototype.changeDirection = function(newDirection) {
       }
     }
 };
-
-//moves the car towards the desired direction
-$(document).keydown(function(event) {
-
-  if (event.keyCode == 38) {
-    //moveForward
-    car.moveForward(car.direction);
-  }
-  if (event.keyCode == 39) {
-    //rotate right
-    switch (car.direction) {
-      case "left":
-        car.changeDirection("up-left");
-
-        break;
-      case "up-left":
-        car.changeDirection("up");
-        break;
-      case "up":
-        car.changeDirection("up-right");
-        break;
-      case "up-right":
-        car.changeDirection("right");
-        break;
-      case "right":
-        car.changeDirection("down-right");
-        break;
-      case "down-right":
-        car.changeDirection("down");
-        break;
-      case "down":
-        car.changeDirection("down-left");
-        break;
-      case "down-left":
-        car.changeDirection("left");
-        break;
-      }
-  }
-  if (event.keyCode == 37) {
-    //rotate left
-    switch (car.direction) {
-      case "left":
-        car.changeDirection("down-left");
-        break;
-      case "up-left":
-        car.changeDirection("left");
-        break;
-      case "up":
-        car.changeDirection("up-left");
-        break;
-      case "up-right":
-        car.changeDirection("up");
-        break;
-      case "right":
-        car.changeDirection("up-right");
-        break;
-      case "down-right":
-        car.changeDirection("right");
-        break;
-      case "down":
-        car.changeDirection("down-right");
-        break;
-      case "down-left":
-        car.changeDirection("down");
-        break;
-      }
-  }
-  if (event.keyCode == 40) {
-    //break
-    car.moveForward("none");
-  }
-});
