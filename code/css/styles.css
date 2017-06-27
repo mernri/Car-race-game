@@ -16,17 +16,19 @@ body {
   position: absolute;
   height: 30px;
   width: 60px;
-  background-color: black;
-  border-left: 5px black solid;
+  /*border-left: 5px black solid;*/
 
 }
 
 #car-player1 {
   position: absolute;
-  background-color: red;
   left: 450px;
   top: 520px;
   transform: rotate(0deg);
+  background-image: url("../img/player1.png");
+  background-size: 64px 64px;
+  height: 64px;
+  width: 64px;
 }
 
 
@@ -45,30 +47,30 @@ body {
 #wall-1 {
   position: absolute;
   height: 300px;
-  width: 10px;
+  width: 20px;
   left: 450px;
 }
 
 #wall-2 {
   position: absolute;
-  height: 10px;
-  width: 600px;
-  left: 150px;
+  height: 20px;
+  width: 500px;
+  left: 200px;
   top: 450px;
 }
 
 #wall-3 {
   position: absolute;
   height: 300px;
-  width: 10px;
-  left: 150px;
+  width: 20px;
+  left: 200px;
   top: 150px;
 }
 
 #wall-4 {
   position: absolute;
   height: 300px;
-  width: 10px;
-  left: 740px;
+  width: 20px;
+  left: 680px;
   top: 150px;
 }

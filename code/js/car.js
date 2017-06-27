@@ -7,6 +7,7 @@ function Car(options) {
 
 //defines movement of the car pixels depending on the direction
 Car.prototype.moveForward = function(direction,carSpeed) {
+  console.log("acelera");
   this.direction = direction;
   var that = this;
   this.intervalId = setInterval(function() {
@@ -69,13 +70,13 @@ Car.prototype.moveForward = function(direction,carSpeed) {
   },30);
 };
 
-Car.prototype.stop = function(lastDirection) {
+Car.prototype.stop = function() {
   if (this.intervalId){
     clearInterval(this.intervalId);
     // carDiv1.css({
     //   top: carVertPosition = carVertPosition,
     //   left: carHorPosition = carHorPosition});
-    this.direction = lastDirection;
+    // this.direction = lastDirection;
   }
 };
 
@@ -137,10 +138,17 @@ Car.prototype.changeDirection = function(newDirection) {
 
 
 Car.prototype.carCrashes = function () {
-  if(actualCarHorPosition < 0) {
-    car.stop("left");
-    console.log("Crasssssssss!!!");
+  if(actualCarHorPosition < trackLeftLimit) {
+    car.stop();
   }
-
+  if(actualCarVertPosition < trackUpperLimit) {
+    car.stop();
+  }
+  if(actualCarHorPosition > trackRightLimit - carLength) {
+    car.stop();
+  }
+  if(actualCarVertPosition > trackBottomLimit - carLength) {
+    car.stop();
+  }
 
 };
