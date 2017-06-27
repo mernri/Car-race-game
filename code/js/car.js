@@ -2,12 +2,13 @@ console.log("Starting car race");
 
 function Car(name, v) {
   this.name = name;
-  this.posX = 0;
-  this.posY = 0;
+  this.posLeft = 0;
+  this.posTop = 0;
   this.speed = v;
-  this.angle = 0;
-  this.offX = 100;
-  this.offY = 100;
+  this.angle = 180;
+  this.pointAt = 0;
+  this.offX = 550;
+  this.offY = 450;
   this.placeInTrack();
 }
 
@@ -15,36 +16,54 @@ Car.prototype.placeInTrack = function(offX,offY) {
   var el = $("<div>").attr('id', this.name).addClass('car');
   $('#track').append(el);
   el.css({
-   top: this.posY + this.offX,
-   left: this.posX + this.offY
+   top: this.posTop + this.offX,
+   left: this.posLeft + this.offY,
+   transform: "rotate(" + (this.angle -180) + "deg)"
+ });
+};
+
+Car.prototype.renderNewPosition = function() {
+  this.posLeft += Math.cos(this.angle * Math.PI / 180) * this.speed;
+  this.posTop += Math.sin(this.angle * Math.PI / 180) * this.speed;
+  $('#' + this.name).css({
+   top: this.posTop + this.offX,
+   left: this.posLeft + this.offY,
+  //  transform: "rotate(" + this.angle + "deg)"
  });
 };
 
 
-Car.prototype.renderNewPosition = function() {
-  this.posX += Math.sin(this.angle * Math.PI / 180) * this.speed;
-  this.posY += Math.cos(this.angle * Math.PI / 180) * this.speed;
+Car.prototype.turnRight = function() {
+  this.angle += 10;
   $('#' + this.name).css({
-   top: this.posY + this.offX,
-   left: this.posX + this.offY,
-   transform: "rotate(" + this.angle + "deg)"});
+   transform: "rotate(" + (this.pointAt += 10) + "deg)"
+ });
 };
 
-Car.prototype.turnRight = function() {
-  this.angle += 3;
+Car.prototype.turnLeft = function() {
+  this.angle -= 10;
+  $('#' + this.name).css({
+   transform: "rotate(" + (this.pointAt -= 10) + "deg)"
+ });
 };
 
-Car.prototype.turnRight = function() {
-  this.angle -= 3;
+Car.prototype.stop = function() {
+  if(this.speed >= 1/fps) {
+    this.speed -= (50/fps);
+  }else {
+    this.speed = (0/fps);
+  }
 };
 
-
-
+Car.prototype.start = function() {
+  if(this.speed <= 151/fps) {
+  this.speed += (50/fps);
+  }else {
+  this.speed = (50/fps);
+  }
+};
 
 //Idea : crear una funcion que para parar ponga la velocidad a 0 cuando deje de presionar la tecla delantera y acelere a la velocidad del coche cuando pulse la tecla
-
-
-
 
 
 
