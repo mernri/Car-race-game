@@ -5,10 +5,6 @@ function Car(options) {
   this.speed = 5;
 }
 
-var carDiv1 = $("#car-player1");
-var carVertPosition = $("#car-player1").position().top;
-var carHorPosition = $("#car-player1").position().left;
-
 //defines movement of the car pixels depending on the direction
 Car.prototype.moveForward = function(direction,carSpeed) {
   this.direction = direction;
@@ -127,4 +123,14 @@ Car.prototype.changeDirection = function(newDirection) {
         return;
       }
     }
+};
+
+
+//------------------ control crashes ---------------------------
+//--------------------------------------------------------------
+
+
+Car.prototype.carCrashes = function () {
+  if($("#car-player1").position().left == "0px");
+  car.stop("left");
 };
