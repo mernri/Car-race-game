@@ -14,13 +14,13 @@ body {
 
 .car {
   position: absolute;
-  height: 30px;
+  height: 33px;
   width: 60px;
-  /*border-left: 5px black solid;*/
   background-image: url("../img/player1.png");
+  background-size: 60px 33px;
 }
 
-#car-player1 {
+/*#car-player1 {
   position: absolute;
   left: 450px;
   top: 520px;
@@ -29,7 +29,7 @@ body {
   background-size: 64px 64px;
   height: 64px;
   width: 64px;
-}
+}*/
 
 
 /*#car-player2 {

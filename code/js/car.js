@@ -4,7 +4,7 @@ function Car(name, v) {
   this.name = name;
   this.posX = 0;
   this.posY = 0;
-  this.v = v;
+  this.speed = v;
   this.angle = 0;
   this.offX = 100;
   this.offY = 100;
@@ -22,13 +22,12 @@ Car.prototype.placeInTrack = function(offX,offY) {
 
 
 Car.prototype.renderNewPosition = function() {
-  this.posX += Math.sin(this.angle * Math.PI / 180) * this.v;
-  this.posY += Math.cos(this.angle * Math.PI / 180) * this.v;
+  this.posX += Math.sin(this.angle * Math.PI / 180) * this.speed;
+  this.posY += Math.cos(this.angle * Math.PI / 180) * this.speed;
   $('#' + this.name).css({
    top: this.posY + this.offX,
    left: this.posX + this.offY,
-   transform: "rotate(" + this.angle + "deg)"
- });
+   transform: "rotate(" + this.angle + "deg)"});
 };
 
 Car.prototype.turnRight = function() {
