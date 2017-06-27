@@ -7,6 +7,7 @@ function Car(name, v) {
   this.speed = v;
   this.angle = 180;
   this.pointAt = 0;
+  this.turnSpeed = 10;
   this.offX = 550;
   this.offY = 450;
   this.placeInTrack();
@@ -18,7 +19,7 @@ Car.prototype.placeInTrack = function(offX,offY) {
   el.css({
    top: this.posTop + this.offX,
    left: this.posLeft + this.offY,
-   transform: "rotate(" + (this.angle -180) + "deg)"
+  //  transform: "rotate(" + (this.angle -180) + "deg)"
  });
 };
 
@@ -27,25 +28,37 @@ Car.prototype.renderNewPosition = function() {
   this.posTop += Math.sin(this.angle * Math.PI / 180) * this.speed;
   $('#' + this.name).css({
    top: this.posTop + this.offX,
-   left: this.posLeft + this.offY,
-  //  transform: "rotate(" + this.angle + "deg)"
+   left: this.posLeft + this.offY
  });
 };
 
-
-Car.prototype.turnRight = function() {
-  this.angle += 10;
-  $('#' + this.name).css({
-   transform: "rotate(" + (this.pointAt += 10) + "deg)"
- });
+Car.prototype.turn = function(direction) {
+  if (direction == "right") {
+    this.angle += this.turnSpeed;
+    $('#' + this.name).css({
+      transform: "rotate(" + (this.pointAt += this.turnSpeed) + "deg)"
+      });
+  } else {
+    this.angle -= this.turnSpeed;
+    $('#' + this.name).css({
+     transform: "rotate(" + (this.pointAt -= this.turnSpeed) + "deg)"
+   });
+  }
 };
 
-Car.prototype.turnLeft = function() {
-  this.angle -= 10;
-  $('#' + this.name).css({
-   transform: "rotate(" + (this.pointAt -= 10) + "deg)"
- });
-};
+// Car.prototype.turnRight = function() {
+//   this.angle += this.turnSpeed;
+//   $('#' + this.name).css({
+//    transform: "rotate(" + (this.pointAt += this.turnSpeed) + "deg)"
+//  });
+// };
+//
+// Car.prototype.turnLeft = function() {
+//   this.angle -= this.turnSpeed;
+//   $('#' + this.name).css({
+//    transform: "rotate(" + (this.pointAt -= this.turnSpeed) + "deg)"
+//  });
+// };
 
 Car.prototype.stop = function() {
   if(this.speed >= 1/fps) {

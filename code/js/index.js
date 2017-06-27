@@ -9,15 +9,15 @@ $(document).keydown(function(event) {
   }
   if (event.keyCode == 39) {
     //rotate right
-    car.turnRight()
+    car.turn("right");
   }
   if (event.keyCode == 37) {
     //rotate left
-    car.turnLeft()
+    car.turn("left");
   }
   if (event.keyCode == 40) {
     //break
-    car.stop()
+    car.stop();
   }
 });
 
