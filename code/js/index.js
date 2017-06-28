@@ -1,25 +1,48 @@
 
-//-------------- Keys functions ----------------
-//----------------------------------------------
+//-------------- Keys functions Car1 ----------------
+//---------------------------------------------------
 
 $(document).keydown(function(event) {
   if (event.keyCode == 38) {
     //moveForward
-    car.start();
+    car1.start();
   }
   if (event.keyCode == 39) {
     //rotate right
-    car.turn("right");
+    car1.turn("right");
   }
   if (event.keyCode == 37) {
     //rotate left
-    car.turn("left");
+    car1.turn("left");
   }
   if (event.keyCode == 40) {
     //break
-    car.stop();
+    car1.stop();
   }
 });
+
+//-------------- Keys functions Car2 ----------------
+//---------------------------------------------------
+
+$(document).keydown(function(event) {
+  if (event.keyCode == 87) {
+    //moveForward
+    car2.start();
+  }
+  if (event.keyCode == 68) {
+    //rotate right
+    car2.turn("right");
+  }
+  if (event.keyCode == 65) {
+    //rotate left
+    car2.turn("left");
+  }
+  if (event.keyCode == 83) {
+    //break
+    car2.stop();
+  }
+});
+
 
 //moves the car towards the desired direction
 // $(document).keydown(function(event) {

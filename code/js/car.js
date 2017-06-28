@@ -1,15 +1,15 @@
 console.log("Starting car race");
 
-function Car(name, v) {
+function Car(name, v, PlaceCarYpx) {
   this.name = name;
   this.posLeft = 0;
   this.posTop = 0;
+  this.offX = 550;
+  this.offY = PlaceCarYpx;
   this.speed = v;
   this.angle = 180;
   this.pointAt = 0;
   this.turnSpeed = 10;
-  this.offX = 550;
-  this.offY = 450;
   this.placeInTrack();
 }
 
@@ -17,9 +17,8 @@ Car.prototype.placeInTrack = function(offX,offY) {
   var el = $("<div>").attr('id', this.name).addClass('car');
   $('#track').append(el);
   el.css({
-   top: this.posTop + this.offX,
-   left: this.posLeft + this.offY,
-  //  transform: "rotate(" + (this.angle -180) + "deg)"
+   top: this.posTop + this.offY,
+   left: this.posLeft + this.offX,
  });
 };
 
@@ -27,8 +26,8 @@ Car.prototype.renderNewPosition = function() {
   this.posLeft += Math.cos(this.angle * Math.PI / 180) * this.speed;
   this.posTop += Math.sin(this.angle * Math.PI / 180) * this.speed;
   $('#' + this.name).css({
-   top: this.posTop + this.offX,
-   left: this.posLeft + this.offY
+   top: this.posTop + this.offY,
+   left: this.posLeft + this.offX
  });
 };
 
@@ -46,19 +45,6 @@ Car.prototype.turn = function(direction) {
   }
 };
 
-// Car.prototype.turnRight = function() {
-//   this.angle += this.turnSpeed;
-//   $('#' + this.name).css({
-//    transform: "rotate(" + (this.pointAt += this.turnSpeed) + "deg)"
-//  });
-// };
-//
-// Car.prototype.turnLeft = function() {
-//   this.angle -= this.turnSpeed;
-//   $('#' + this.name).css({
-//    transform: "rotate(" + (this.pointAt -= this.turnSpeed) + "deg)"
-//  });
-// };
 
 Car.prototype.stop = function() {
   if(this.speed >= 1/fps) {
