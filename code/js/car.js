@@ -85,21 +85,12 @@ Car.prototype.crashTrackLimits = function() {
 };
 
 Car.prototype.crashObstacles = function() {
-  // for (var obstacleId = 1; obstacleId < 5; obstacleId++) {
-  //   var obstacleTopPosition = $('#wall-' + obstacleId).position().top;
-  //   var obstacleLeftPosition = $('#wall-' + obstacleId).position().left;
-  //   var obstacleHeight = $('#wall-' + obstacleId).height();
-  //   var obstacleWidth = $('#wall-' + obstacleId).width();
-  //
-  //   var carTopPosition = $('#' + this.name).position().top;
-  //   var carLeftPosition = $('#' + this.name).position().left;
-  //   var carHeight = $('#' + this.name).height();
-  //   var carWidth = $('#' + this.name).width();
-
     if (this._leftCrash()) {
       this.stop();
     }
-  // }
+    if (this._topCrash()) {
+      this.stop();
+    }
 };
 
 Car.prototype._leftCrash = function() {
@@ -114,13 +105,33 @@ Car.prototype._leftCrash = function() {
     var carHeight = $('#' + this.name).height();
     var carWidth = $('#' + this.name).width();
 
-  if((obstacleTopPosition < carTopPosition) &&
+  if((carTopPosition > obstacleTopPosition) &&
     (carTopPosition < obstacleTopPosition + obstacleHeight) &&
     (carLeftPosition < obstacleLeftPosition) &&
     (carLeftPosition > obstacleLeftPosition - (obstacleWidth + 40))) {
       return true;
     }
   }
+};
+
+Car.prototype._topCrash = function() {
+    var obstacleId = 4;
+    var obstacleTopPosition = $('#wall-' + obstacleId).position().top;
+    var obstacleLeftPosition = $('#wall-' + obstacleId).position().left;
+    var obstacleHeight = $('#wall-' + obstacleId).height();
+    var obstacleWidth = $('#wall-' + obstacleId).width();
+
+    var carTopPosition = $('#' + this.name).position().top;
+    var carLeftPosition = $('#' + this.name).position().left;
+    var carHeight = $('#' + this.name).height();
+    var carWidth = $('#' + this.name).width();
+
+  if((carTopPosition < obstacleTopPosition) &&
+    (carTopPosition > obstacleTopPosition - (obstacleHeight + 40)) &&
+    (carLeftPosition > obstacleLeftPosition) &&
+    (carLeftPosition < obstacleLeftPosition + obstacleWidth)) {
+      return true;
+    }
 };
 
 
