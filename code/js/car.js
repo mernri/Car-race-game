@@ -88,7 +88,13 @@ Car.prototype.crashObstacles = function() {
     if (this._leftCrash()) {
       this.stop();
     }
+    if (this._rightCrash()) {
+      this.stop();
+    }
     if (this._topCrash()) {
+      this.stop();
+    }
+    if(this._bottomCrash()) {
       this.stop();
     }
 };
@@ -109,6 +115,29 @@ Car.prototype._leftCrash = function() {
     (carTopPosition < obstacleTopPosition + obstacleHeight) &&
     (carLeftPosition < obstacleLeftPosition) &&
     (carLeftPosition > obstacleLeftPosition - (obstacleWidth + 40))) {
+      console.log("crashed from left!!");
+      return true;
+    }
+  }
+};
+
+Car.prototype._rightCrash = function() {
+  for (var obstacleId = 1; obstacleId < 4; obstacleId++) {
+    var obstacleTopPosition = $('#wall-' + obstacleId).position().top;
+    var obstacleLeftPosition = $('#wall-' + obstacleId).position().left;
+    var obstacleHeight = $('#wall-' + obstacleId).height();
+    var obstacleWidth = $('#wall-' + obstacleId).width();
+
+    var carTopPosition = $('#' + this.name).position().top;
+    var carLeftPosition = $('#' + this.name).position().left;
+    var carHeight = $('#' + this.name).height();
+    var carWidth = $('#' + this.name).width();
+
+  if((carTopPosition > obstacleTopPosition) &&
+    (carTopPosition < obstacleTopPosition + obstacleHeight) &&
+    (carLeftPosition > obstacleLeftPosition) &&
+    (carLeftPosition < obstacleLeftPosition + (obstacleWidth))) {
+      console.log("crashed from right!!");
       return true;
     }
   }
@@ -130,11 +159,31 @@ Car.prototype._topCrash = function() {
     (carTopPosition > obstacleTopPosition - (obstacleHeight + 40)) &&
     (carLeftPosition > obstacleLeftPosition) &&
     (carLeftPosition < obstacleLeftPosition + obstacleWidth)) {
+      console.log("crashed from top!!");
       return true;
     }
 };
 
+Car.prototype._bottomCrash = function() {
+    var obstacleId = 4;
+    var obstacleTopPosition = $('#wall-' + obstacleId).position().top;
+    var obstacleLeftPosition = $('#wall-' + obstacleId).position().left;
+    var obstacleHeight = $('#wall-' + obstacleId).height();
+    var obstacleWidth = $('#wall-' + obstacleId).width();
 
+    var carTopPosition = $('#' + this.name).position().top;
+    var carLeftPosition = $('#' + this.name).position().left;
+    var carHeight = $('#' + this.name).height();
+    var carWidth = $('#' + this.name).width();
+
+  if((carTopPosition > obstacleTopPosition) &&
+    (carTopPosition < obstacleTopPosition + (obstacleHeight)) &&
+    (carLeftPosition > obstacleLeftPosition) &&
+    (carLeftPosition < obstacleLeftPosition + obstacleWidth)) {
+      console.log("crashed from bottom!!");
+      return true;
+    }
+};
 
 
 
