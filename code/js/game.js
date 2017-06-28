@@ -11,4 +11,5 @@ var intervalId = setInterval(function() {
 var intervalId = setInterval(function() {
   car2.renderNewPosition();
   car2.crashTrackLimits();
+  car2.crashObstacles();
 }, 1000 / fps);

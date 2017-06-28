@@ -85,36 +85,43 @@ Car.prototype.crashTrackLimits = function() {
 };
 
 Car.prototype.crashObstacles = function() {
-  // var obstacleTopPosition = $('#' + obstacleId).position().top;
-  // var obstacleLeftPosition = $('#' + obstacleId).position().left;
-  // var obstacleHeight = $('#' + obstacleId).height();
-  // var obstacleWidth = $('#' + obstacleId).width();
-for(var obstacleId = 1; obstacleId < 5; obstacleId++) {
-  var obstacleTopPosition = $('#wall-' + obstacleId).position().top;
-  var obstacleLeftPosition = $('#wall-' + obstacleId).position().left;
-  var obstacleHeight = $('#wall-' + obstacleId).height();
-  var obstacleWidth = $('#wall-' + obstacleId).width();
+  // for (var obstacleId = 1; obstacleId < 5; obstacleId++) {
+  //   var obstacleTopPosition = $('#wall-' + obstacleId).position().top;
+  //   var obstacleLeftPosition = $('#wall-' + obstacleId).position().left;
+  //   var obstacleHeight = $('#wall-' + obstacleId).height();
+  //   var obstacleWidth = $('#wall-' + obstacleId).width();
+  //
+  //   var carTopPosition = $('#' + this.name).position().top;
+  //   var carLeftPosition = $('#' + this.name).position().left;
+  //   var carHeight = $('#' + this.name).height();
+  //   var carWidth = $('#' + this.name).width();
 
-  var carTopPosition = $('#' + this.name).position().top;
-  var carLeftPosition = $('#' + this.name).position().left;
-  var carHeight = $('#' + this.name).height();
-  var carWidth = $('#' + this.name).width();
+    if (this._leftCrash()) {
+      this.stop();
+    }
+  // }
+};
 
-// (humanPaddleVerticalPosition < ballVerticalPosition) && (ballVerticalPosition < humanPaddleVerticalPosition + 50) && (ballHorizontalPosition < humanPaddleHorizontalPosition) && (ballHorizontalPosition > humanPaddleHorizontalPosition - 30)
+Car.prototype._leftCrash = function() {
+  for (var obstacleId = 1; obstacleId < 4; obstacleId++) {
+    var obstacleTopPosition = $('#wall-' + obstacleId).position().top;
+    var obstacleLeftPosition = $('#wall-' + obstacleId).position().left;
+    var obstacleHeight = $('#wall-' + obstacleId).height();
+    var obstacleWidth = $('#wall-' + obstacleId).width();
 
-    if ((obstacleTopPosition < carTopPosition) &&
+    var carTopPosition = $('#' + this.name).position().top;
+    var carLeftPosition = $('#' + this.name).position().left;
+    var carHeight = $('#' + this.name).height();
+    var carWidth = $('#' + this.name).width();
+
+  if((obstacleTopPosition < carTopPosition) &&
     (carTopPosition < obstacleTopPosition + obstacleHeight) &&
     (carLeftPosition < obstacleLeftPosition) &&
     (carLeftPosition > obstacleLeftPosition - (obstacleWidth + 40))) {
-      this.stop();
+      return true;
     }
   }
 };
-
-
-
-
-
 
 
 
