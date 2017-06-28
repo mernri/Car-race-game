@@ -13,22 +13,22 @@ function Car(name, v, PlaceCarYpx) {
   this.placeInTrack();
 }
 
-Car.prototype.placeInTrack = function(offX,offY) {
+Car.prototype.placeInTrack = function(offX, offY) {
   var el = $("<div>").attr('id', this.name).addClass('car');
   $('#track').append(el);
   el.css({
-   top: this.posTop + this.offY,
-   left: this.posLeft + this.offX,
- });
+    top: this.posTop + this.offY,
+    left: this.posLeft + this.offX,
+  });
 };
 
 Car.prototype.renderNewPosition = function() {
   this.posLeft += Math.cos(this.angle * Math.PI / 180) * this.speed;
   this.posTop += Math.sin(this.angle * Math.PI / 180) * this.speed;
   $('#' + this.name).css({
-   top: this.posTop + this.offY,
-   left: this.posLeft + this.offX
- });
+    top: this.posTop + this.offY,
+    left: this.posLeft + this.offX
+  });
 };
 
 Car.prototype.turn = function(direction) {
@@ -36,33 +36,90 @@ Car.prototype.turn = function(direction) {
     this.angle += this.turnSpeed;
     $('#' + this.name).css({
       transform: "rotate(" + (this.pointAt += this.turnSpeed) + "deg)"
-      });
+    });
   } else {
     this.angle -= this.turnSpeed;
     $('#' + this.name).css({
-     transform: "rotate(" + (this.pointAt -= this.turnSpeed) + "deg)"
-   });
+      transform: "rotate(" + (this.pointAt -= this.turnSpeed) + "deg)"
+    });
   }
 };
 
 
 Car.prototype.stop = function() {
-  if(this.speed >= 1/fps) {
-    this.speed -= (50/fps);
-  }else {
-    this.speed = (0/fps);
+  if (this.speed >= 1 / fps) {
+    this.speed -= (50 / fps);
+  } else {
+    this.speed = (0 / fps);
   }
 };
 
 Car.prototype.start = function() {
-  if(this.speed <= 151/fps) {
-  this.speed += (50/fps);
-  }else {
-  this.speed = (50/fps);
+  if (this.speed <= 151 / fps) {
+    this.speed += (50 / fps);
+  } else {
+    this.speed = (50 / fps);
   }
 };
 
-//Idea : crear una funcion que para parar ponga la velocidad a 0 cuando deje de presionar la tecla delantera y acelere a la velocidad del coche cuando pulse la tecla
+//------------------ control crashes ---------------------------
+//--------------------------------------------------------------
+
+Car.prototype.crashTrackLimits = function() {
+  var carTopPosition = $('#' + this.name).position().top;
+  var carLeftPosition = $('#' + this.name).position().left;
+  var carHeight = $('#' + this.name).height();
+  var carWidth = $('#' + this.name).width();
+  if (carLeftPosition < trackLeftLimit) {
+    this.stop();
+  }
+  if (carTopPosition < trackUpperLimit) {
+    this.stop();
+  }
+  if (carLeftPosition > trackRightLimit - $('#' + this.name).width()) {
+    this.stop();
+  }
+  if (carTopPosition > trackBottomLimit - $('#' + this.name).width()) {
+    this.stop();
+  }
+};
+
+Car.prototype.crashObstacles = function() {
+  // var obstacleTopPosition = $('#' + obstacleId).position().top;
+  // var obstacleLeftPosition = $('#' + obstacleId).position().left;
+  // var obstacleHeight = $('#' + obstacleId).height();
+  // var obstacleWidth = $('#' + obstacleId).width();
+for(var obstacleId = 1; obstacleId < 5; obstacleId++) {
+  var obstacleTopPosition = $('#wall-' + obstacleId).position().top;
+  var obstacleLeftPosition = $('#wall-' + obstacleId).position().left;
+  var obstacleHeight = $('#wall-' + obstacleId).height();
+  var obstacleWidth = $('#wall-' + obstacleId).width();
+
+  var carTopPosition = $('#' + this.name).position().top;
+  var carLeftPosition = $('#' + this.name).position().left;
+  var carHeight = $('#' + this.name).height();
+  var carWidth = $('#' + this.name).width();
+
+// (humanPaddleVerticalPosition < ballVerticalPosition) && (ballVerticalPosition < humanPaddleVerticalPosition + 50) && (ballHorizontalPosition < humanPaddleHorizontalPosition) && (ballHorizontalPosition > humanPaddleHorizontalPosition - 30)
+
+    if ((obstacleTopPosition < carTopPosition) &&
+    (carTopPosition < obstacleTopPosition + obstacleHeight) &&
+    (carLeftPosition < obstacleLeftPosition) &&
+    (carLeftPosition > obstacleLeftPosition - (obstacleWidth + 40))) {
+      this.stop();
+    }
+  }
+};
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -197,25 +254,4 @@ Car.prototype.start = function() {
 //         return;
 //       }
 //     }
-// };
-
-
-//------------------ control crashes ---------------------------
-//--------------------------------------------------------------
-
-
-// Car.prototype.carCrashes = function () {
-//   if(actualCarHorPosition < trackLeftLimit) {
-//     car.stop();
-//   }
-//   if(actualCarVertPosition < trackUpperLimit) {
-//     car.stop();
-//   }
-//   if(actualCarHorPosition > trackRightLimit - carLength) {
-//     car.stop();
-//   }
-//   if(actualCarVertPosition > trackBottomLimit - carLength) {
-//     car.stop();
-//   }
-//
 // };
