@@ -52,26 +52,25 @@ Car.prototype.turn = function(direction) {
 Car.prototype.stop = function() {
   if (this.speed >= 1 / fps) {
     this.speed -= (25 / fps);
+    playBrakesAudio ();
   } else {
     this.speed = (0 / fps);
   }
 };
 
 Car.prototype.start = function() {
-  var carAccel = new Audio ("./sounds/car-accel.mp3");
-  var carEngine = new Audio ("./sounds/engine.mp3");
   if (this.speed >= 201 / fps) {
     this.speed = (200 / fps);
-    carAccel.play();
-    carEngine.play();
+    playEngineAudio();
   } else if (this.speed <= 201 / fps){
     this.speed += (25 / fps);
-    carAccel.play();
-    carEngine.play();
+    playAccelAudio();
+    playEngineAudio();
   } else {
     this.speed = (25 / fps);
+    playAccelAudio();
+    var carAccel = new Audio ("./sounds/car-accel.mp3");
     carAccel.play();
-    carEngine.play();
   }
 };
 
@@ -98,6 +97,6 @@ if (this._onFinishLine1()) {
   this.laps ++ ;
   console.log(this.name +" has " + this.laps + " laps");
   clearInterval(intervalId2);
-
+  setTimeout(function() {this.setinTerval(intervalId2);}, 1000);
   }
 };

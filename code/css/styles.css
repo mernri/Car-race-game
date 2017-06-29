@@ -1,5 +1,6 @@
 body {
-
+background-image: url("../img/cover.jpg");
+background-size: auto;
 }
 
 #track {
@@ -91,4 +92,10 @@ body {
   background-color: white;
   left: 420px;
   top: 470px;
+}
+
+.laps {
+  position: absolute;
+  height: 180px;
+  margin-left: 15%;
 }
