@@ -13,13 +13,3 @@ var intervalId = setInterval(function() {
 //   car2.renderNewPosition();
 //   car2.crashObstacles();
 // }, 1000 / fps);
-
-
-
-// $(document).keydown(function(event){
-//         keys[event.which] = true;
-//     }).keyup(function(event){
-//         delete keys[event.which];
-//     });
-//
-//
