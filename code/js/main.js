@@ -7,5 +7,3 @@ var trackUpperLimit = 0;
 var trackBottomLimit = 650;
 var trackLeftLimit = 0;
 var trackRightLimit = 899;
-
-//position wall-1

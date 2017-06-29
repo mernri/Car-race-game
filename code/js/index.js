@@ -1,46 +1,83 @@
 //-------------- Keys functions Car1 ----------------
 //---------------------------------------------------
 
-$(document).keydown(function(event) {
-  if (event.keyCode == 38) {
-    //moveForward
-    car1.start();
-  }
-  if (event.keyCode == 39) {
-    //rotate right
-    car1.turn("right");
-  }
-  if (event.keyCode == 37) {
-    //rotate left
-    car1.turn("left");
-  }
-  if (event.keyCode == 40) {
-    //break
-    car1.stop();
-  }
-});
+// $(document).keydown(function(event) {
+//   if (event.keyCode == 38) {
+//     //moveForward
+//     car1.start();
+//   }
+//   if (event.keyCode == 39) {
+//     //rotate right
+//     car1.turn("right");
+//   }
+//   if (event.keyCode == 37) {
+//     //rotate left
+//     car1.turn("left");
+//   }
+//   if (event.keyCode == 40) {
+//     //break
+//     car1.stop();
+//   }
+// });
 
 //-------------- Keys functions Car2 ----------------
 //---------------------------------------------------
 
-$(document).keydown(function(event) {
-  if (event.keyCode == 87) {
-    //moveForward
-    car2.start();
-  }
-  if (event.keyCode == 68) {
-    //rotate right
-    car2.turn("right");
-  }
-  if (event.keyCode == 65) {
-    //rotate left
-    car2.turn("left");
-  }
-  if (event.keyCode == 83) {
-    //break
-    car2.stop();
-  }
+// $(document).keydown(function(event) {
+//   if (event.keyCode == 87) {
+//     //moveForward
+//     car2.start();
+//   }
+//   if (event.keyCode == 68) {
+//     //rotate right
+//     car2.turn("right");
+//   }
+//   if (event.keyCode == 65) {
+//     //rotate left
+//     car2.turn("left");
+//   }
+//   if (event.keyCode == 83) {
+//     //break
+//     car2.stop();
+//   }
+// });
+
+
+//---------------------------------
+var keys = {};
+
+setInterval(checkControls, 100);
+
+$(document).keydown(function(e){
+  console.log("funcionando");
+  keys[e.keyCode] = true;
+}).keyup(function(e){
+  delete keys[e.keyCode];
 });
+function checkControls(){
+  if (keys[38])
+    car1.start();
+  else if (keys[39])
+    car1.turn("right");
+  else if (keys[37])
+    car1.turn("left");
+  else if (keys[40]) 
+    car1.stop();
+  if (keys[87])
+    car2.start();
+  else if (keys[68])
+    car2.turn("right");
+  else if (keys[65])
+    car2.turn("left");
+  else if (keys[83])
+    car2.stop();
+
+}
+
+
+
+
+
 
 
 //moves the car towards the desired direction

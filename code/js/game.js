@@ -4,12 +4,22 @@ var car2 = new Car("car-player2", 50 / fps, 550);
 
 var intervalId = setInterval(function() {
   car1.renderNewPosition();
-  car1.crashTrackLimits();
   car1.crashObstacles();
-}, 1000 / fps);
-
-var intervalId = setInterval(function() {
   car2.renderNewPosition();
-  car2.crashTrackLimits();
   car2.crashObstacles();
 }, 1000 / fps);
+
+// var intervalId = setInterval(function() {
+//   car2.renderNewPosition();
+//   car2.crashObstacles();
+// }, 1000 / fps);
+
+
+
+// $(document).keydown(function(event){
+//         keys[event.which] = true;
+//     }).keyup(function(event){
+//         delete keys[event.which];
+//     });
+//
+//
