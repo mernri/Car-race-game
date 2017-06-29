@@ -5,7 +5,7 @@ body {
 #track {
   height: 650px;
   width: 900px;
-  background-color: darkgrey;
+  background-image: url("../img/track.png");
   position: absolute;
   margin-left: 15%;
   margin-top: 5%;
@@ -78,8 +78,17 @@ body {
 #finish-line-1 {
   position: absolute;
   height: 180px;
-  width: 10px;
+  width: 5px;
   background-color: white;
   left: 390px;
+  top: 470px;
+}
+
+#finish-line-2 {
+  position: absolute;
+  height: 180px;
+  width: 5px;
+  background-color: white;
+  left: 420px;
   top: 470px;
 }

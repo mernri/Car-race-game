@@ -10,7 +10,10 @@ function Car(name, v, PlaceCarYpx) {
   this.angle = 180;
   this.pointAt = 0;
   this.turnSpeed = 10;
+  this.laps = -1;
   this.placeInTrack();
+  this.carOnFinishLine1 = false;
+  this.carOnFinishLine2 = false;
 }
 
 Car.prototype.placeInTrack = function(offX, offY) {
@@ -55,15 +58,22 @@ Car.prototype.stop = function() {
 };
 
 Car.prototype.start = function() {
+  var carAccel = new Audio ("./sounds/car-accel.mp3");
+  var carEngine = new Audio ("./sounds/engine.mp3");
   if (this.speed >= 201 / fps) {
     this.speed = (200 / fps);
+    carAccel.play();
+    carEngine.play();
   } else if (this.speed <= 201 / fps){
     this.speed += (25 / fps);
+    carAccel.play();
+    carEngine.play();
   } else {
     this.speed = (25 / fps);
+    carAccel.play();
+    carEngine.play();
   }
 };
-
 
 Car.prototype.crashObstacles = function() {
   if (this._leftCrash()) {
@@ -80,5 +90,14 @@ Car.prototype.crashObstacles = function() {
   }
   if (this._crashTrackLimits()) {
     this.stop();
+  }
+};
+
+Car.prototype.lapsCounter = function() {
+if (this._onFinishLine1()) {
+  this.laps ++ ;
+  console.log(this.name +" has " + this.laps + " laps");
+  clearInterval(intervalId2);
+
   }
 };
