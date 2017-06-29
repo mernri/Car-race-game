@@ -48,17 +48,19 @@ Car.prototype.turn = function(direction) {
 
 Car.prototype.stop = function() {
   if (this.speed >= 1 / fps) {
-    this.speed -= (50 / fps);
+    this.speed -= (25 / fps);
   } else {
     this.speed = (0 / fps);
   }
 };
 
 Car.prototype.start = function() {
-  if (this.speed <= 151 / fps) {
-    this.speed += (50 / fps);
+  if (this.speed >= 201 / fps) {
+    this.speed = (200 / fps);
+  } else if (this.speed <= 201 / fps){
+    this.speed += (25 / fps);
   } else {
-    this.speed = (50 / fps);
+    this.speed = (25 / fps);
   }
 };
 

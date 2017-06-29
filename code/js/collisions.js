@@ -108,9 +108,9 @@ Car.prototype._bottomCrash = function() {
     }
 };
 
-Car.prototype._finishLineCross = function() {
+Car.prototype.finishLineCross = function() {
     var obstacleTopPosition = $('#finish-line-1').position().top;
-    var obstacleLeftPosition = $('finish-line-1').position().left;
+    var obstacleLeftPosition = $('#finish-line-1').position().left;
     var obstacleHeight = $('#finish-line-1').height();
     var obstacleWidth = $('#finish-line-1').width();
 
@@ -121,9 +121,9 @@ Car.prototype._finishLineCross = function() {
 
   if((carTopPosition > obstacleTopPosition) &&
     (carTopPosition < obstacleTopPosition + obstacleHeight) &&
-    (carLeftPosition < obstacleLeftPosition) &&
-    (carLeftPosition > obstacleLeftPosition - (obstacleWidth + 40))) {
-      console.log("Finish line crosshed!");
+    (carLeftPosition > obstacleLeftPosition) &&
+    (carLeftPosition < obstacleLeftPosition + (obstacleWidth))) {
+      console.log(this.name + " finish line crosshed!");
       return true;
     }
 };
