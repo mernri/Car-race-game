@@ -5,29 +5,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+  <link rel="stylesheet" type="text/css" href="css/stylessSec.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
   <title>Classic Car Race Game</title>
 </head>
 
 <body>
-  <div id="laps-p" class="laps"><h2 id="laps-p1">Player 1:</h2><h2 id="laps-p1">0 Laps</h2><h2 id="laps-p2">Player 2:</h2><h2 id="laps-p2">0 Laps</h2></div>
-  <div id="track">
-    <div id="finish-line-1" class="finish-line"></div>
-    <div id="finish-line-2" class="finish-line"></div>
-    <div id="wall-1" class="wall"></div>
-    <div id="wall-2" class="wall"></div>
-    <div id="wall-3" class="wall"></div>
-    <div id="wall-4" class="wall"></div>
-  </div>
-  <script src="lib/jquery-3.2.1/jquery-3.2.1.js"></script>
-  <script src="lib/jquery-collision/jquery-collision.js"></script>
-  <script type="text/javascript" src="js/main.js"></script>
-  <script type="text/javascript" src="js/car.js"></script>
-  <script type="text/javascript" src="js/collisions.js"></script>
-  <script type="text/javascript" src="js/finishline.js"></script>
-  <script type="text/javascript" src="js/game.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
+  <div class="title-game"><h1>Scalex-Trick24h</h1></div>
+  <div class="player-titles"><h4>Player 1 controls:</h4><ul>
+  <li>Speed Up -> Arrow Up</li>
+  <li>Speed Down -> Arrow Down</li>
+  <li>Right -> Arrow Right</li>
+  <li>Left -> Arrow Left</li>
+</ul></div>
+  <div class="player-titles"><h4>Player 2 controls:</h4><ul>
+  <li>Speed Up -> W</li>
+  <li>Speed Down -> S</li>
+  <li>Right -> D</li>
+  <li>Left -> A</li>
+</ul></div>
+
+<button class="start" type="button" onclick="window.location.href='../code/race.html'">Start</button>
+
 </body>
 
 </html>

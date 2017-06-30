@@ -1,0 +1,40 @@
+body {
+background-image: url("../img/cover.jpg");
+background-repeat: no-repeat;
+background-attachment: fixed;
+font-family: "Press Start 2P";
+}
+
+h4 {
+  padding-left: 15px;
+}
+
+.title-game {
+  width: 1000px;
+  text-align: center;
+  margin-top: 50px;
+  margin-left: 200px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  font-size: 27px;
+  background-color: rgba(211, 211, 211, 0.65);
+}
+
+.player-titles {
+  margin-left: 450px;
+  width: 450px;
+  font-size: 15px;
+  background-color: rgba(211, 211, 211, 0.65);
+  margin-top: 35px;
+  padding: 1px 1px 1px 1px;
+}
+
+.start {
+  margin-left: 500px;
+  margin-top: 40px;
+  font-size: 60px;
+  font-family:  "Press Start 2P";
+  padding: 20px;
+  background-color: black;
+  color: white;
+}

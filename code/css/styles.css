@@ -2,6 +2,7 @@ body {
 background-image: url("../img/cover.jpg");
 background-repeat: no-repeat;
 background-attachment: fixed;
+font-family: "Press Start 2P"
 }
 
 #track {
