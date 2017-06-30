@@ -88,8 +88,6 @@ Car.prototype._bottomCrash = function() {
   }
 };
 
-
-
 Car.prototype._onFinishLine1 = function() {
   var obstacleTopPosition = $('#finish-line-1').position().top;
   var obstacleLeftPosition = $('#finish-line-1').position().left;
@@ -97,6 +95,7 @@ Car.prototype._onFinishLine1 = function() {
   var obstacleWidth = $('#finish-line-1').width();
   var carTopPosition = $('#' + this.name).position().top;
   var carLeftPosition = $('#' + this.name).position().left;
+
   if ((carTopPosition > obstacleTopPosition) &&
     (carTopPosition < obstacleTopPosition + obstacleHeight) &&
     (carLeftPosition > obstacleLeftPosition) &&
@@ -107,19 +106,21 @@ Car.prototype._onFinishLine1 = function() {
   }
 };
 
-Car.prototype._onFinishLine2 = function() {
-  var obstacleTopPosition = $('#finish-line-2').position().top;
-  var obstacleLeftPosition = $('#finish-line-2').position().left;
-  var obstacleHeight = $('#finish-line-2').height();
-  var obstacleWidth = $('#finish-line-2').width();
-  var carTopPosition = $('#' + this.name).position().top;
-  var carLeftPosition = $('#' + this.name).position().left;
-  if ((carTopPosition > obstacleTopPosition) &&
-    (carTopPosition < obstacleTopPosition + obstacleHeight) &&
-    (carLeftPosition > obstacleLeftPosition) &&
-    (carLeftPosition < obstacleLeftPosition + (obstacleWidth))) {
-    return true;
-  } else {
-    return false;
-  }
-};
+// Car.prototype._onFinishLine2 = function() {
+//   var obstacleTopPosition = $('#finish-line-2').position().top;
+//   var obstacleLeftPosition = $('#finish-line-2').position().left;
+//   var obstacleHeight = $('#finish-line-2').height();
+//   var obstacleWidth = $('#finish-line-2').width();
+//
+//   var carTopPosition = $('#' + this.name).position().top;
+//   var carLeftPosition = $('#' + this.name).position().left;
+//
+//   if ((carTopPosition > obstacleTopPosition) &&
+//     (carTopPosition < obstacleTopPosition + obstacleHeight) &&
+//     (carLeftPosition > obstacleLeftPosition) &&
+//     (carLeftPosition < obstacleLeftPosition + (obstacleWidth))) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// };

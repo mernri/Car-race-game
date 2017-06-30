@@ -94,9 +94,8 @@ Car.prototype.crashObstacles = function() {
 
 Car.prototype.lapsCounter = function() {
 if (this._onFinishLine1()) {
+  // $('#finish-line-1').remove();
   this.laps ++ ;
   console.log(this.name +" has " + this.laps + " laps");
-  clearInterval(intervalId2);
-  setTimeout(function() {this.setinTerval(intervalId2);}, 1000);
   }
 };

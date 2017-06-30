@@ -21,14 +21,12 @@ font-family: "Press Start 2P"
   position: absolute;
   height: 33px;
   width: 60px;
-  /*background-image: url("../img/player1.png");*/
   background-size: 60px 33px;
 }
 
 #car-player1 {
   background-image: url("../img/player1.png");
 }
-
 
 #car-player2 {
   background-image: url("../img/player2.png");
@@ -70,6 +68,10 @@ font-family: "Press Start 2P"
   top: 450px;
 }
 
+.finish-Line {
+
+}
+
 #finish-line-1 {
   position: absolute;
   height: 180px;
@@ -79,29 +81,37 @@ font-family: "Press Start 2P"
   top: 470px;
 }
 
-#finish-line-2 {
+/*#finish-line-2 {
   position: absolute;
   height: 180px;
   width: 5px;
   background-color: white;
   left: 420px;
   top: 470px;
-}
+}*/
 
 .laps {
   position: absolute;
-  height: 180px;
-  width: 100%;
-  margin-left: 15%;
-  position: fixed;
 }
 
-#laps-p1 {
-  height: 180px;
-
+#laps-p2-1 {
+  left: 843px;
+  top: 30px;
+  color: #b60000;
 }
 
-#laps-p2 {
-  height: 180px;
+#laps-p2-2 {
+  left: 995px;
+  top: 30px;
+  color: #b60000;
+}
 
+#laps-p1-1 {
+  left: 176px;
+  top: 30px;
+}
+
+#laps-p1-2 {
+  left: 330px;
+  top: 30px;
 }

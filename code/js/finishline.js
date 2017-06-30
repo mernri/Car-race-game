@@ -1,13 +1,10 @@
-// function FinishLine() {
-//   this.carOnFinishLine = false;
+
+
+// function placeFinishLine() {
+//   var finishLine = $("<div>").attr('id', 'finish-line-1').addClass('finish-Line');
+//   $('#track').append(finishLine);
+//   finishLine.css({
+//     top: "470px",
+//     left: "390px",
+//   });
 // }
-//
-// FinishLine.prototype.car1Passing = function() {
-//   if (car1._onFinishLine()) {
-//     this.carOnFinishLine = true;
-//     console.log("This car is On crossing the finish line");
-//   } else {
-//     this.carOnFinishLine = false;
-//     console.log("Crossed Line!!!!!!");
-//   }
-// };

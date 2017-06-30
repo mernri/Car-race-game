@@ -1,7 +1,6 @@
 //------------ Gobal Variables ---------------------------
 //--------------------------------------------------------
 
-
 //position of the track limit
 var trackUpperLimit = 0;
 var trackBottomLimit = 650;
