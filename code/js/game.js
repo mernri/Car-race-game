@@ -23,31 +23,31 @@ var intervalId2 = setInterval(function() {
 }, 1000 / fps2);
 
 function playCrashAudio() {
-  var carCrash = new Audio ("./sounds/crash.mp3");
+  var carCrash = new Audio ("./code/sounds/crash.mp3");
   carCrash.play();
   carBrakes.volume = 0.2;
 }
 
 function playBrakesAudio() {
-  var carBrakes = new Audio ("./sounds/braking.mp3");
+  var carBrakes = new Audio ("./code/sounds/braking.mp3");
   carBrakes.play();
   carBrakes.volume = 0.7;
 }
 
 function playAccelAudio() {
-  var carAccel = new Audio ("./sounds/car-accel.mp3");
+  var carAccel = new Audio ("./code/sounds/car-accel.mp3");
   carAccel.play();
   carAccel.volume = 0.5;
 }
 
 function playEngineAudio() {
-  var carEngine = new Audio ("./sounds/engine.mp3");
+  var carEngine = new Audio ("./code/sounds/engine.mp3");
   carEngine.play();
   carEngine.volume = 0.2;
 }
 
 function playGameMusic() {
-  var gameMusic = new Audio ("./sounds/nitro-court.mp3");
+  var gameMusic = new Audio ("./code/sounds/nitro-court.mp3");
   gameMusic.play();
   gameMusic.volume = 1;
 }
