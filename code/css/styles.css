@@ -1,6 +1,7 @@
 body {
 background-image: url("../img/cover.jpg");
-background-size: auto;
+background-repeat: no-repeat;
+background-attachment: fixed;
 }
 
 #track {
@@ -11,34 +12,26 @@ background-size: auto;
   margin-left: 15%;
   margin-top: 5%;
   border: 10px black solid;
+  position: fixed;
+
 }
 
 .car {
   position: absolute;
   height: 33px;
   width: 60px;
-  background-image: url("../img/player1.png");
+  /*background-image: url("../img/player1.png");*/
   background-size: 60px 33px;
 }
 
-/*#car-player1 {
-  position: absolute;
-  left: 450px;
-  top: 520px;
-  transform: rotate(0deg);
+#car-player1 {
   background-image: url("../img/player1.png");
-  background-size: 64px 64px;
-  height: 64px;
-  width: 64px;
-}*/
+}
 
 
-/*#car-player2 {
-  position: absolute;
-  background-color: green;
-  left: 450px;
-  top: 580px;
-}*/
+#car-player2 {
+  background-image: url("../img/player2.png");
+}
 
 .wall {
   position: absolute;
@@ -97,5 +90,17 @@ background-size: auto;
 .laps {
   position: absolute;
   height: 180px;
+  width: 100%;
   margin-left: 15%;
+  position: fixed;
+}
+
+#laps-p1 {
+  height: 180px;
+
+}
+
+#laps-p2 {
+  height: 180px;
+
 }
