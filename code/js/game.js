@@ -1,8 +1,8 @@
 var fps = 50; //renders the selected frames per second of main interval ID
 var fps2 = 30; //renders the selected frames per second of main interval ID
 
-var car1 = new Car("car-player1", 50 / fps, 500);
-var car2 = new Car("car-player2", 50 / fps, 550);
+var car1 = new Car("car-player1", 50 / fps, 520);
+var car2 = new Car("car-player2", 50 / fps, 570);
 // var finishLine = new FinishLine();
 
 var intervalId = setInterval(function() {

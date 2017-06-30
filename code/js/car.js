@@ -4,7 +4,7 @@ function Car(name, v, PlaceCarYpx) {
   this.name = name;
   this.posLeft = 0;
   this.posTop = 0;
-  this.offX = 550;
+  this.offX = 490;
   this.offY = PlaceCarYpx;
   this.speed = v;
   this.angle = 180;
